@@ -1,0 +1,14 @@
+{
+  "name": "install_hello",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "hello": "file:../hello"
+  }
+}
