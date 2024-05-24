@@ -7,9 +7,16 @@ cd hello
 make
 ```
 
-### `js_interop`
+### JS Interop
 
 ```sh
 cd js_interop_hello
+make
+```
+
+### Wasm Import/Export
+
+```sh
+cd wasm_import_hello
 make
 ```
