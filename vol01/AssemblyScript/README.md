@@ -20,3 +20,10 @@ make
 cd benchmark
 make
 ```
+
+### カスタマイズ機能(プラグイン)
+
+```sh
+cd plugins
+make
+```
