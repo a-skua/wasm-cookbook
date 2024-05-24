@@ -13,3 +13,10 @@ make
 cd install_hello
 make
 ```
+
+### フィボナッチ数`F(92)`のベンチマーク
+
+```sh
+cd benchmark
+make
+```
