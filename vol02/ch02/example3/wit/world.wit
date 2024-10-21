@@ -1,0 +1,11 @@
+package vscode:example;
+
+interface vscode {
+    show-information-message: func(message: string);
+}
+
+world example {
+    import vscode;
+
+    export run: func();
+}
