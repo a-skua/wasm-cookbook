@@ -1,0 +1,15 @@
+h1.not-found {
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
