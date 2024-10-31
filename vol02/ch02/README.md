@@ -14,7 +14,7 @@ cd example2
 code .
 ```
 
-### Gonygoを使った拡張機能の実装．
+### TinyGoを使った拡張機能の実装．
 
 ```sh
 cd example3

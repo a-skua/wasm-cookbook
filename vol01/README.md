@@ -1,9 +1,4 @@
 # WebAssembly Cookbook vol.1
 
-## AssemblyScript
-
-- [README](./AssemblyScript/README.md)
-
-## Dart
-
-- [README](./Dart/README.md)
+1. [AssemblyScript](./AssemblyScript/README.md)
+2. [Dart](./Dart/README.md)
