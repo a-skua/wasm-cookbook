@@ -1,3 +1,2 @@
 .DS_Store
 *.wasm
-wasm_exec.js
