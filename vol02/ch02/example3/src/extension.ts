@@ -22,6 +22,7 @@ export async function activate(context: vscode.ExtensionContext) {
     {
       wasi_snapshot_preview1: {
         fd_write() {},
+        random_get() {},
       },
       ...example._.imports.create({
         vscode: {
