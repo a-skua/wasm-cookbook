@@ -2,6 +2,8 @@
 
 - [Rust](https://www.rust-lang.org/tools/install)
 - [wasmtime](https://github.com/bytecodealliance/wasmtime)
+- [wasm-pkg-tools (wkg)](https://github.com/bytecodealliance/wasm-pkg-tools)
+- [wasmCloud](https://wasmcloud.com/docs/tour/hello-world/)
 
 ### 環境変数の読み込み
 
@@ -21,5 +23,12 @@ make
 
 ```sh
 cd fetch
+make
+```
+
+### Wasmを使ったウェブサーバーの実装
+
+```sh
+cd http
 make
 ```
