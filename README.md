@@ -1,5 +1,10 @@
 # WebAssembly Cookbook シリーズサンプルコード
 
+## WebAssembly Cookbook vol.3
+
+- [技術書典マーケット](https://techbookfest.org/product/eaB0rRWarUMVQNQzdXuT67)
+- [サンプルコード](./vol03/README.md)
+
 ## WebAssembly Cookbook vol.2
 
 - [技術書典マーケット](https://techbookfest.org/product/7CHqqtaeaRYrwDwQNCX0T7)
