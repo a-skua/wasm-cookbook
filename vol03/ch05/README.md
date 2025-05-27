@@ -16,3 +16,10 @@ make
 cd file
 make
 ```
+
+### ネットワークアクセス
+
+```sh
+cd fetch
+make
+```
