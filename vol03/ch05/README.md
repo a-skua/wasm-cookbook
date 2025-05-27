@@ -32,3 +32,9 @@ make
 cd http
 make
 ```
+
+### wasmCloudを利用したウェブサーバーの起動
+
+```sh
+wash app deploy wadm.yaml
+```
