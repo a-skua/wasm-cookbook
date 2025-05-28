@@ -6,7 +6,13 @@ plugged.wasm: use-component/target/wasm32-wasip2/release/use-component.wasm my-c
 	wac plug $< --plug $(word 2,$^) -o $@
 
 use-component/target/wasm32-wasip2/release/use-component.wasm:
-	$(MAKE) -C use-component 
+	@$(MAKE) -C use-component
 
 my-component/target/wasm32-wasip2/release/my_component.wasm:
-	$(MAKE) -C my-component
+	@$(MAKE) -C my-component
+
+.PHONY: clean
+clean:
+	@$(MAKE) -C use-component clean
+	@$(MAKE) -C my-component clean
+	rm -f plugged.wasm

@@ -6,3 +6,7 @@ all: target/wasm32-wasip2/release/use-component.wasm
 
 target/wasm32-wasip2/release/%.wasm: $(SRC) $(WIT)
 	cargo build -r --target wasm32-wasip2
+
+.PHONY: clean
+clean:
+	cargo clean
