@@ -1,0 +1,5 @@
+package example:component@0.1.0;
+
+world edge {
+  include wasi:http/proxy@0.2.5;
+}
