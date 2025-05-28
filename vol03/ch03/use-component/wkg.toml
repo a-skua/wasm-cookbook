@@ -1,0 +1,2 @@
+[overrides."example:component"]
+path = "../my-component/wit"

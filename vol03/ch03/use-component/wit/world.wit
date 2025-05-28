@@ -1,0 +1,5 @@
+package example:host@0.1.0;
+
+world host {
+  import example:component/calculate@0.1.0;
+}
