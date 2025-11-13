@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    events {}
+    http {
+      server {
+        listen 80;
+
+        location / {
+          proxy_pass http://localhost:8080;
+        }
+      }
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wasm-workload
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: wasm-workload
+  template:
+    metadata:
+      labels:
+        app: wasm-workload
+    spec:
+      runtimeClassName: wasmtime
+      containers:
+        - name: hello-wasm
+          image: ghcr.io/kl-lru/hello-wasi-web:v0.1.0-wasm # put your WASM image here
+          command: ["serve", "-S", "cli"]
+          ports:
+            - containerPort: 8080
+        - name: sidecar
+          image: nginx:latest
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-config
