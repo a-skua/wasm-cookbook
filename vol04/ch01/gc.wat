@@ -1,0 +1,18 @@
+(module
+  (type $point (struct (field $x f64) (field $y f64)))
+  (func $point_new (param $x f64) (param $y f64) (result (ref $point))
+    (struct.new $point
+      (local.get $x)
+      (local.get $y)
+    )
+  )
+  (func $point_get_x (param $p (ref $point)) (result f64)
+    (struct.get $point $x (local.get $p))
+  )
+  (func $point_get_y (param $p (ref $point)) (result f64)
+    (struct.get $point $y (local.get $p))
+  )
+  (export "point_new" (func $point_new))
+  (export "point_get_x" (func $point_get_x))
+  (export "point_get_y" (func $point_get_y))
+)

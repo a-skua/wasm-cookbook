@@ -1,0 +1,13 @@
+package cookbook:example@1.0.0-vol4-golang-calc;
+
+interface calculator {
+  add: func(a: s32, b: s32) -> s32;
+  sub: func(a: s32, b: s32) -> s32;
+  mul: func(a: s32, b: s32) -> s32;
+  div: func(a: s32, b: s32) -> s32;
+}
+
+world calc {
+  include wasi:cli/imports@0.2.8;
+  export calculator;
+}

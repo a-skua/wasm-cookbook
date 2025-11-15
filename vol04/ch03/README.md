@@ -1,4 +1,4 @@
-## 3. Wasm版OpenCVを使って作るQRコードリーダー
+## Wasm版OpenCVを使って作るQRコードリーダー
 
 OpenCV.jsを用いてQRコードリーダーを実装するサンプルです．  
 
