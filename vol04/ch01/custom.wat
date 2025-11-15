@@ -1,0 +1,3 @@
+(module
+  (@custom "foo" "bar")
+)
