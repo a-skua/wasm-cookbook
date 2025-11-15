@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wasm-workload
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: wasm-workload
+  template:
+    metadata:
+      labels:
+        app: wasm-workload
+    spec:
+      runtimeClassName: wasmtime
+      containers:
+        - name: hello-wasm
+          image: ghcr.io/kl-lru/hello-wasi-web:v0.1.0-wasm # put your WASM image here
+          command: ["serve", "-S", "cli"]
+          ports:
+            - containerPort: 8080
