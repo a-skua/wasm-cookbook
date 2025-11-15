@@ -1,0 +1,6 @@
+package example:root;
+
+world proxy {
+  include wasi:cli/imports@0.2.8;
+  include wasi:http/proxy@0.2.8;
+}
