@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>OpenCV.js QR Code Reader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #canvas {
+      border: 2px solid #333;
+      margin: 20px auto;
+      display: block;
+    }
+    #result {
+      margin: 20px;
+      padding: 10px;
+      font-size: 18px;
+      background: #f0f0f0;
+      border-radius: 5px;
+    }
+    #result.success {
+      background: #90EE90;
+    }
+  </style>
+</head>
+<body>
+  <h1>OpenCV.js QRコードリーダー</h1>
+  <video id="video" width="640" height="480" autoplay style="display:none;"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <div id="result">QRコードをカメラに映してください</div>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <script src="https://docs.opencv.org/4.12.0/opencv.js" onload="onOpenCvReady()"></script>
+</body>
+</html>
