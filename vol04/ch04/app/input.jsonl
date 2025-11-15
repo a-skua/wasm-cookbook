@@ -1,0 +1,3 @@
+{"price":10000,"tax_rate":10,"price_type":"tax_included"}
+{"price":10000,"tax_rate":10,"price_type":"tax_excluded"}
+{"price":9999,"tax_rate":8,"price_type":"tax_excluded"}
