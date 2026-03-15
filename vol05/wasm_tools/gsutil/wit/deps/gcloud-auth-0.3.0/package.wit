@@ -1,0 +1,21 @@
+package gcloud:auth@0.3.0;
+
+interface types {
+  record token {
+    access-token: string,
+    token-type: string,
+    expires-in: u64,
+  }
+
+  variant error {
+    invalid-credentials(string),
+    token-fetch-failed(string),
+  }
+}
+
+interface token-source {
+  use types.{token, error};
+
+  get-token: func(scopes: list<string>) -> result<token, error>;
+}
+

@@ -1,0 +1,5 @@
+package example:gsutil@0.1.0;
+
+world root {
+    import gcloud:storage/objects@0.3.0;
+}

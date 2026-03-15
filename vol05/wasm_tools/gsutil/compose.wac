@@ -1,0 +1,13 @@
+package example:composition;
+
+let auth = new gcloud:auth { ... };
+let storage = new gcloud:storage {
+    "gcloud:auth/token-source@0.3.0": auth["gcloud:auth/token-source@0.3.0"],
+    ...
+};
+let app = new example:gsutil {
+    "gcloud:storage/objects@0.3.0": storage["gcloud:storage/objects@0.3.0"],
+    ...
+};
+
+export app...;
