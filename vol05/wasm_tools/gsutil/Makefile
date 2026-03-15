@@ -19,10 +19,10 @@ build: target/wasm32-wasip2/release/$(NAME)
 clean:
 	cargo clean
 
-$(AUTH_WASM):
+$(AUTH_WASM): target/wasm32-wasip2/release/$(NAME)
 	wkg oci pull -o $@ $(AUTH_WASM_REF)
 
-$(STORAGE_WASM):
+$(STORAGE_WASM): target/wasm32-wasip2/release/$(NAME)
 	wkg oci pull -o $@ $(STORAGE_WASM_REF)
 
 %: %.php
