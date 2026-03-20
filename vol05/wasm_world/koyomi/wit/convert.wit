@@ -1,0 +1,15 @@
+package example:koyomi@0.1.0;
+
+interface convert {
+    resource western-date {
+        constructor(year: u16, month: u8, day: u8);
+        to-wareki: func() -> result<wareki-date, string>;
+        to-string: func() -> string;
+    }
+
+    resource wareki-date {
+        constructor(era: string, year: u16, month: u8, day: u8);
+        to-western: func() -> result<western-date, string>;
+        to-string: func() -> string;
+    }
+}

@@ -1,0 +1,9 @@
+package example:composition;
+
+let koyomi = new example:koyomi { ... };
+let app = new example:koyomi-app {
+    "example:koyomi/convert@0.1.0": koyomi["example:koyomi/convert@0.1.0"],
+    ...
+};
+
+export app...;
