@@ -11,13 +11,18 @@
 make
 ```
 
+### Proxy の立ち上げ
+
+```bash
+docker compose up --detach --wait
+```
+
 ### アクセストークン発行
 
 各コマンドの詳細については Makefile を参照ください.
 
 ```bash
-docker compose up --detach
-make setup-hydra
+make oauth-client
 make token
 ```
 
