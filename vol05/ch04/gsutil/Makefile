@@ -5,6 +5,9 @@ AUTH_WASM := target/wasm32-wasip2/release/gcloud_auth_0_3_0.wasm
 STORAGE_WASM_REF := ghcr.io/a-skua/gcloud/storage:0.3.0-component
 STORAGE_WASM := target/wasm32-wasip2/release/gcloud_storage_0_3_0.wasm
 
+.PHONY: all
+all: init run
+
 .PHONY: run
 run: target/wasm32-wasip2/release/compose_$(NAME)
 	wa run gsutil -h
