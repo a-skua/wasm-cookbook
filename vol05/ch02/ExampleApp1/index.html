@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+    <script type="module">
+      import { init }
+        from "./.build/plugins/PackageToJS/outputs/Package/index.js";
+      const { exports } = await init({});
+
+      console.log(exports.greet("World"));
+
+      const bookshelf = new exports.Bookshelf();
+      bookshelf.addBook("WebAssembly", "asuka");
+      bookshelf.addBook("Swift", "parsee1053");
+      console.log(`Titles: ${bookshelf.getTitles()}`);
+      console.log(`Authors: ${bookshelf.getAuthors()}`);
+      console.log(`Count: ${bookshelf.getCount()}`);
+      // @JS classのインスタンスは使い終わったらrelease()で解放する
+      bookshelf.release();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
