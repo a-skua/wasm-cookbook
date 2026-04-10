@@ -1,0 +1,5 @@
+package example:koyomi-app@0.1.0;
+
+world app {
+    import example:koyomi/convert@0.1.0;
+}

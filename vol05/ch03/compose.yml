@@ -1,0 +1,45 @@
+services:
+  envoy:
+    image: envoyproxy/envoy:distroless-v1.37-latest
+    ports:
+      - "10000:10000"
+      - "9901:9901"
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+      - ./target/wasm32-wasip1/release/wasm_filter.wasm:/wasm_filter.wasm
+    depends_on:
+      - hydra
+
+  psql:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: hydra
+      POSTGRES_USER: hydra
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hydra"]
+
+  hydra: &hydra
+    image: oryd/hydra:v25.4.0
+    command: serve all --dev
+    environment:
+      DSN: postgres://hydra:secret@psql:5432/hydra?sslmode=disable
+      SECRETS_SYSTEM: dev-secret-not-for-production
+      LOG_LEVEL: info
+    depends_on:
+      hydra-migrate:
+        condition: service_completed_successfully
+
+  hydra-migrate:
+    <<: *hydra
+    command: migrate sql --yes --read-from-env
+    restart: on-failure
+    ports: []
+    depends_on:
+      psql:
+        condition: service_healthy
+
+volumes:
+  db-data:

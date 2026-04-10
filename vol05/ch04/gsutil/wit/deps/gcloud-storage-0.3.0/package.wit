@@ -1,0 +1,70 @@
+package gcloud:storage@0.3.0;
+
+interface types {
+  use gcloud:auth/types@0.3.0.{error as auth-error};
+
+  record bucket {
+    name: string,
+    location: option<string>,
+    storage-class: option<string>,
+    time-created: option<string>,
+  }
+
+  record object {
+    name: string,
+    bucket: string,
+    size: option<string>,
+    content-type: option<string>,
+    time-created: option<string>,
+  }
+
+  variant error {
+    auth(auth-error),
+    request-failed(string),
+  }
+}
+
+interface buckets {
+  use types.{bucket, error};
+
+  /// List buckets in a project.
+  list-buckets: func(project: string) -> result<list<bucket>, error>;
+
+  /// Get a bucket's metadata.
+  get-bucket: func(name: string) -> result<bucket, error>;
+
+  /// Create a new bucket.
+  /// `project` is the project ID, `name` is the bucket name.
+  create-bucket: func(project: string, name: string) -> result<bucket, error>;
+
+  /// Delete a bucket.
+  delete-bucket: func(name: string) -> result<_, error>;
+}
+
+interface objects {
+  use types.{object, error};
+
+  /// List objects in a bucket.
+  /// `bucket` is the bucket name, `prefix` filters results to objects with the given prefix.
+  list-objects: func(bucket: string, prefix: option<string>) -> result<list<object>, error>;
+
+  /// Download an object's data.
+  /// `bucket` is the bucket name, `name` is the object name.
+  get-object: func(bucket: string, name: string) -> result<list<u8>, error>;
+
+  /// Upload an object.
+  /// `bucket` is the bucket name, `name` is the object name.
+  upload-object: func(bucket: string, name: string, data: list<u8>, content-type: string) -> result<object, error>;
+
+  /// Delete an object.
+  delete-object: func(bucket: string, name: string) -> result<_, error>;
+}
+
+world storage-provider {
+  import gcloud:auth/types@0.3.0;
+  import gcloud:auth/token-source@0.3.0;
+  import types;
+
+  export buckets;
+  export objects;
+}

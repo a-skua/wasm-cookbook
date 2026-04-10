@@ -1,0 +1,11 @@
+package cookbook:example@0.1.0;
+
+interface action {
+    greet: func (name: string) -> string;
+}
+
+world greeter {
+    include wasi:cli/imports@0.2.0;
+
+    export action;
+}

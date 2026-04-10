@@ -1,0 +1,21 @@
+# wasm-pkg-runner configuration
+# See: https://github.com/a-skua/wasm-pkg-runner
+
+[packages.convert]
+path = "bin/convert.wasm"
+
+# OCI registry reference
+# [packages.<name>]
+# reference = "ghcr.io/example/package:0.1.0"
+#
+# Local wasm file path
+# [packages.<name>]
+# path = "/home/<username>/path/to/component.wasm"
+#
+# [packages.<name>.run]
+# wasi = ["http"]
+# dirs = ["/home/<username>/.config/gcloud"]
+# env = ["GOOGLE_APPLICATION_CREDENTIALS"]
+#
+# [packages.<name>.serve]
+# wasi = ["cli"]

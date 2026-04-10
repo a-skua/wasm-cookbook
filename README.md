@@ -1,5 +1,12 @@
 # WebAssembly Cookbook シリーズサンプルコード
 
+## WebAssembly Cookbook vol.5
+
+技術書典20 (2026年4月11日)
+
+- [技術書典マーケット](#)
+- [サンプルコード](./vol05/README.md)
+
 ## WebAssembly Cookbook vol.4
 
 技術書典19 (2025年11月15日)
