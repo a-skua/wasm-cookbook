@@ -4,7 +4,7 @@
 
 技術書典20 (2026年4月11日)
 
-- [技術書典マーケット](#)
+- [技術書典マーケット](https://techbookfest.org/product/aA4Av5Bcu6ztjDfZiMgXWJ)
 - [サンプルコード](./vol05/README.md)
 
 ## WebAssembly Cookbook vol.4
