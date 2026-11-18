@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch, Web</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "example:fetch/console": "./console.js",
+        "example:fetch/fetch": "./fetch.js",
+        "@bytecodealliance/preview2-shim/cli": "./node_modules/@bytecodealliance/preview2-shim/dist/browser/cli.js",
+        "@bytecodealliance/preview2-shim/io": "./node_modules/@bytecodealliance/preview2-shim/dist/browser/io.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Fetch, Web</h1>
+  <p>Open the browser console to see the output.</p>
+  <form id="form">
+    <input id="url" type="text" value="./index.html" size="40">
+    <button type="submit">Fetch</button>
+  </form>
+  <script type="module">
+    import { run } from "./dist/fetch.js";
+
+    document.getElementById("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      // JSPIでtranspileしているため`run`はPromiseを返す
+      await run.run(document.getElementById("url").value);
+    });
+  </script>
+</body>
+</html>
