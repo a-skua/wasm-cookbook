@@ -2,7 +2,7 @@
 
 ## WebAssembly Cookbook vol.6
 
-技術書典20 (2026年11月23日)
+技術書典21 (2026年11月21日)
 
 - [技術書典マーケット](https://techbookfest.org/product/gVJur6c4aBYy1RJUmzKL37)
 - [サンプルコード](./vol06/README.md)
