@@ -1,0 +1,16 @@
+package example:hello@2026.11.21;
+
+interface console {
+    log: func (message: string);
+}
+
+interface run {
+    run: func ();
+}
+
+
+world filter {
+    import console;
+
+    export run;
+}

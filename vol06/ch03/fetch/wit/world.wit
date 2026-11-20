@@ -1,0 +1,29 @@
+package example:fetch@2026.11.21;
+
+interface console {
+    log: func (message: string);
+}
+
+interface fetch {
+    /// HTTP レスポンス (ホスト側ではJSの`Response`をそのまま扱う)
+    resource response {
+        /// ステータスコード (例: 200)
+        status: func () -> u16;
+        /// レスポンスボディをテキストとして読み出す (`Response.text()`)
+        text: func () -> future<string>;
+    }
+
+    fetch: func (url: string) -> future<result<response>>;
+}
+
+interface run {
+    run: func (url: string);
+}
+
+
+world filter {
+    import fetch;
+    import console;
+
+    export run;
+}
