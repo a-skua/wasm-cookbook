@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>physics-bench</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: grid;
+        place-items: center;
+        gap: 8px;
+      }
+      canvas {
+        background: #f4f6fb;
+        border: 2px solid #334;
+      }
+      #stats {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="controls">
+      <select id="engine">
+        <option value="matter">matter.js（JavaScript）</option>
+        <option value="rapier">Rapier（Wasm）</option>
+        <option value="rapier-simd">Rapier（Wasm + SIMD）</option>
+      </select>
+      <select id="count">
+        <option>500</option>
+        <option selected>1000</option>
+        <option>2000</option>
+        <option>5000</option>
+      </select>
+      <button>開始</button>
+    </form>
+    <p id="stats">エンジンと玉の数を選んで「開始」を押してください</p>
+    <canvas id="view" width="600" height="600"></canvas>
+    <script type="module" src="/src/bench.ts"></script>
+  </body>
+</html>

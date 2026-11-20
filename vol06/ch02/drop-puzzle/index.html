@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drop-puzzle</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: grid;
+        place-items: center;
+        gap: 8px;
+      }
+      canvas {
+        background: #f4f6fb;
+        border: 2px solid #334;
+        cursor: pointer;
+      }
+      /* 一番大きい玉（直径55px）でも、行の高さが変わらないようにする */
+      p {
+        height: 56px;
+        line-height: 56px;
+      }
+      #next {
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>スコア: <span id="score">0</span>　ネクスト: <span id="next"></span></p>
+    <canvas id="game" width="400" height="600"></canvas>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
